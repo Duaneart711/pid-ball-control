@@ -2,9 +2,9 @@
 
 ## Overview
 
-Designed and built a closed-loop ball-and-beam control system that stabilizes a ball at a desired position using real-time PID (Proportional–Integral–Derivative) control. The project combines embedded programming, sensor integration, electromechanical actuation, and feedback control to continuously measure the ball's position and adjust the beam angle using a servo motor.
+Designed and built a closed-loop ball-and-beam control system that uses a PID (Proportional–Integral–Derivative) controller to keep a ball at a target position in real time. The project combines embedded programming, sensors, mechanical hardware, and feedback control to adjust the beam angle as the ball moves automatically.
 
-The system was implemented using an Arduino Uno, a Sharp GP2Y0A21 infrared distance sensor, and a servo-driven beam mechanism. The controller was iteratively tuned through experimental testing to improve response time, reduce steady-state error, minimize overshoot, and achieve stable ball positioning under varying initial conditions.
+Using an Arduino Uno, a Sharp infrared distance sensor, and a servo motor, the system continuously measures the ball's position and corrects it by tilting the beam. Through repeated testing and controller tuning, the system achieved stable ball positioning with improved response time and reduced oscillations.
 
 ---
 
@@ -16,22 +16,27 @@ The system was implemented using an Arduino Uno, a Sharp GP2Y0A21 infrared dista
 
 ## Project Highlights
 
-- Closed-loop PID control implementation
-- Real-time position feedback using a Sharp GP2Y0A21 infrared distance sensor
-- Servo motor beam actuation
-- Arduino-based embedded control system
-- PID gain tuning and controller optimization
+- Closed-loop PID control system
+- Arduino-based embedded programming
+- Real-time position feedback using an infrared distance sensor
+- Servo motor beam control
+- PID tuning and controller optimization
 - Hardware integration and electrical wiring
-- Electromechanical system design
-- Experimental controller performance evaluation
+- Experimental testing and performance evaluation
 
 ---
 
-## System Description
+## How It Works
 
-The system continuously measures the position of a ball along a beam using a Sharp infrared distance sensor. Position measurements are processed by an Arduino Uno running a PID control algorithm that calculates the difference between the desired and measured ball position.
+The system uses a Sharp infrared distance sensor to continuously measure the position of the ball on the beam. Every 50 milliseconds, the Arduino reads the sensor, calculates how far the ball is from its target position, and determines how much the servo motor should tilt the beam.
 
-The controller generates a corrective output that adjusts the servo motor angle, changing the inclination of the beam to move the ball toward the desired position. This feedback loop executes every 50 milliseconds, allowing the controller to compensate for disturbances and maintain stable ball positioning continuously.
+A PID controller makes these adjustments by considering three factors:
+
+- **Proportional (P):** Corrects the current position error.
+- **Integral (I):** Removes small errors that remain over time.
+- **Derivative (D):** Reduces overshoot and helps stabilize the ball's movement.
+
+The controller output is converted into a servo angle, allowing the beam to respond smoothly and keep the ball near the desired position.
 
 ---
 
@@ -40,7 +45,7 @@ The controller generates a corrective output that adjusts the servo motor angle,
 - Arduino Uno
 - Sharp GP2Y0A21 Infrared Distance Sensor
 - Servo Motor
-- Ball-and-Beam Mechanical Assembly
+- Ball-and-Beam Assembly
 - Custom Mechanical Linkage
 - 3D Printed Support Structure
 - Wooden Base
@@ -48,40 +53,36 @@ The controller generates a corrective output that adjusts the servo motor angle,
 
 ---
 
-## Control Strategy
+## My Contributions
 
-The Arduino continuously sampled the Sharp infrared distance sensor to determine the ball's position along the beam. To improve measurement stability, the controller averaged 100 sensor readings before calculating the control error.
+This project involved designing, programming, assembling, and testing the complete control system.
 
-A proportional–integral–derivative (PID) controller computed the difference between the desired ball position and the measured position. The proportional term corrected the current position error, the integral term reduced steady-state error when the ball remained near the target position, and the derivative term damped oscillations by responding to changes in the error over time.
+My responsibilities included:
 
-The combined controller output was mapped to a servo motor angle that adjusted the beam inclination. Output limits were applied to prevent excessive servo movement while maintaining stable closed-loop operation. Controller gains were iteratively tuned through hardware testing to improve responsiveness while minimizing overshoot, oscillation, and settling time.
-
----
-
-## Engineering Responsibilities
-
-- Designed and integrated the embedded control system using an Arduino Uno and a Sharp infrared distance sensor.
-- Programmed and implemented a closed-loop PID controller for real-time ball position stabilization.
-- Integrated the servo motor, infrared sensor, and mechanical beam assembly into a complete electromechanical system.
-- Tuned proportional, integral, and derivative gains through iterative testing to improve controller performance.
-- Investigated sensor noise, controller oscillations, and mechanical limitations through systematic hardware testing and troubleshooting.
-- Validated controller performance through experimental testing using multiple system response metrics.
+- Programming the PID control algorithm on an Arduino Uno.
+- Integrating the infrared distance sensor with the servo-controlled beam.
+- Wiring and assembling the electrical and mechanical components.
+- Tuning the proportional, integral, and derivative gains through repeated hardware testing.
+- Troubleshooting sensor noise, unstable controller behavior, and mechanical response issues.
+- Evaluating controller performance using experimental response data.
 
 ---
 
 ## Engineering Challenges
 
-Developing a stable closed-loop controller required balancing fast response with overall system stability. Increasing proportional gain improved response speed but introduced overshoot, while excessive derivative gain reduced oscillations at the expense of slower motion. Integral gain was carefully adjusted to reduce steady-state error without causing instability.
+One of the biggest challenges was tuning the PID controller to keep the ball stable while still responding quickly. Higher proportional gains improved response speed but caused overshoot, while excessive derivative gain reduced oscillations at the cost of slower movement. The controller required several rounds of tuning to find the right balance between speed and stability.
 
-Another challenge involved reducing measurement noise from the Sharp infrared distance sensor. To improve measurement reliability, multiple sensor readings were averaged before each control update, reducing fluctuations that could negatively affect controller performance.
+Another challenge was reducing noise from the infrared distance sensor. To improve measurement accuracy, the controller averaged multiple sensor readings before calculating each control update.
 
-Mechanical limitations also influenced system behavior. Because the servo motor and beam mechanism required finite time to respond, controller tuning had to account for actuator response, mechanical inertia, and latency while maintaining smooth ball movement and minimizing oscillations.
+The mechanical system also introduced limitations. Since the servo motor cannot move instantly, the controller had to be tuned to account for the physical response of the beam while minimizing delay and preventing unnecessary oscillations.
 
 ---
 
 ## Testing & Validation
 
-Controller performance was evaluated by experimentally varying the proportional, integral, and derivative gains while measuring key control system characteristics, including:
+System performance was evaluated by adjusting the PID gains and measuring how the controller responded under different operating conditions.
+
+Performance was evaluated using:
 
 - Rise Time
 - Peak Overshoot
@@ -89,60 +90,56 @@ Controller performance was evaluated by experimentally varying the proportional,
 - Steady-State Error
 - Position Error Standard Deviation
 
-Controller gains were iteratively refined using these measurements to improve overall system performance and achieve stable closed-loop control under varying operating conditions.
+These measurements were used to compare different controller settings and guide the tuning process until stable system performance was achieved.
 
 ---
 
 ## Results
 
-The completed system successfully stabilized the ball using real-time closed-loop PID control. Through iterative controller tuning and repeated hardware testing, the system achieved stable ball positioning with reduced steady-state error, controlled overshoot, and improved settling time. Experimental evaluation demonstrated the effect of individual PID gains on controller performance while validating the effectiveness of the implemented feedback control strategy.
+The completed system successfully maintained the ball near its desired position using real-time PID control. Through iterative tuning and repeated testing, the controller became more stable, reduced overshoot, and improved settling time while maintaining reliable operation throughout multiple test runs.
 
 ---
 
 ## Project Photos
 
-### Complete System
+### Labeled System Overview
 
+<img width="1179" height="869" alt="Labeled System" src="PASTE YOUR LABELED IMAGE HERE">
 
 ### Additional Build Photo
 
-*(Insert the additional system photo here.)*
+<img width="1179" height="869" alt="Additional Build" src="PASTE YOUR FIRST PHOTO HERE">
 
 ---
 
 ## Demonstration
 
-> **Note:** GitHub limits embedded video uploads to 10 MB, so the embedded demonstration is a compressed highlight clip. Higher-quality demonstrations are available through the YouTube Shorts links below.
+> **Note:** GitHub limits embedded video uploads to 10 MB, so the embedded demonstrations below are compressed highlight clips. Full-resolution demonstrations are available through the YouTube Shorts links below.
 
-### Embedded Demonstration
+### Embedded Demonstrations
 
 https://github.com/user-attachments/assets/5e7e4817-be4a-4190-be47-2c6e6f99ee15
 
 https://github.com/user-attachments/assets/20f6ba15-5b47-49eb-a0a7-02d0c3827354
 
-
 ### High-Quality Demonstrations
 
-- YouTube Short 1: (https://youtube.com/shorts/YnTExcN106Y?feature=share)
-- YouTube Short 2: (https://youtube.com/shorts/EXuupr8XJpA?feature=share)
-  
+- YouTube Short 1: https://youtube.com/shorts/YnTExcN106Y?feature=share
+- YouTube Short 2: https://youtube.com/shorts/EXuupr8XJpA?feature=share
+
 ---
 
 ## Skills Demonstrated
 
-This project strengthened practical experience in:
-
 - PID Control
 - Embedded Systems
-- Control Systems
 - Arduino Programming
 - Sensor Integration
 - Servo Motor Control
 - Hardware Integration
 - Electrical Wiring
-- Electrical Testing
-- Hardware Troubleshooting
+- Hardware Testing
+- Troubleshooting
 - System Validation
-- Feedback Control
-- Electromechanical System Design
+- Electromechanical Systems
 - Prototype Development
