@@ -104,11 +104,11 @@ The completed system successfully maintained the ball near its desired position 
 
 ### Labeled System Overview
 
-<img width="1179" height="869" alt="Labeled System" src="PASTE YOUR LABELED IMAGE HERE">
+<img width="2054" height="1149" alt="IMG_2055" src="https://github.com/user-attachments/assets/189bc0db-174e-49d1-b8a0-8135e3f90d58" />
 
 ### Additional Build Photo
 
-<img width="1179" height="869" alt="Additional Build" src="PASTE YOUR FIRST PHOTO HERE">
+<img width="1178" height="1511" alt="IMG_1988" src="https://github.com/user-attachments/assets/2820d5e3-a9c1-4ebd-9c5a-89b3dbace256" />
 
 ---
 
@@ -118,9 +118,9 @@ The completed system successfully maintained the ball near its desired position 
 
 ### Embedded Demonstrations
 
-https://github.com/user-attachments/assets/5e7e4817-be4a-4190-be47-2c6e6f99ee15
+https://github.com/user-attachments/assets/2e9c9706-b074-4bcb-9ad0-9f6cbc69de67
 
-https://github.com/user-attachments/assets/20f6ba15-5b47-49eb-a0a7-02d0c3827354
+https://github.com/user-attachments/assets/6ab9d0d0-97cc-41aa-9621-f464d09bdb7d
 
 ### High-Quality Demonstrations
 
