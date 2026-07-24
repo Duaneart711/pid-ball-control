@@ -7,6 +7,39 @@ Designed and built a closed-loop ball-and-beam control system that uses a PID (P
 Using an Arduino Uno, a Sharp infrared distance sensor, and a servo motor, the system continuously measures the ball's position and corrects it by tilting the beam. Through repeated testing and controller tuning, the system achieved stable ball positioning with improved response time and reduced oscillations.
 
 ---
+
+## Hero Photo
+
+<img width="1179" height="869" alt="IMG_2273" src="https://github.com/user-attachments/assets/b654d8fe-0a8d-4ae6-9bc8-299f7274bf58" />
+
+---
+
+## Project Highlights
+
+- Closed-loop PID control system
+- Arduino-based embedded programming
+- Real-time position feedback using an infrared distance sensor
+- Servo motor beam control
+- PID tuning and controller optimization
+- Hardware integration and electrical wiring
+- Experimental testing and performance evaluation
+
+---
+
+## How It Works
+
+The system uses a Sharp infrared distance sensor to continuously measure the position of the ball on the beam. Every 50 milliseconds, the Arduino reads the sensor, calculates how far the ball is from its target position, and determines how much the servo motor should tilt the beam.
+
+A PID controller makes these adjustments by considering three factors:
+
+- **Proportional (P):** Corrects the current position error.
+- **Integral (I):** Removes small errors that remain over time.
+- **Derivative (D):** Reduces overshoot and helps stabilize the ball's movement.
+
+The controller output is converted into a servo angle, allowing the beam to respond smoothly and keep the ball near the desired position.
+
+---
+
 ## Code
 
 The snippet below shows the core control loop that reads the sensor, calculates the PID output, and adjusts the servo to keep the ball centered.
@@ -39,36 +72,6 @@ myservo.write(PID_total + 30);
 
 distance_previous_error = distance_error;
 ```
-## Hero Photo
-
-<img width="1179" height="869" alt="IMG_2273" src="https://github.com/user-attachments/assets/b654d8fe-0a8d-4ae6-9bc8-299f7274bf58" />
-
----
-
-## Project Highlights
-
-- Closed-loop PID control system
-- Arduino-based embedded programming
-- Real-time position feedback using an infrared distance sensor
-- Servo motor beam control
-- PID tuning and controller optimization
-- Hardware integration and electrical wiring
-- Experimental testing and performance evaluation
-
----
-
-## How It Works
-
-The system uses a Sharp infrared distance sensor to continuously measure the position of the ball on the beam. Every 50 milliseconds, the Arduino reads the sensor, calculates how far the ball is from its target position, and determines how much the servo motor should tilt the beam.
-
-A PID controller makes these adjustments by considering three factors:
-
-- **Proportional (P):** Corrects the current position error.
-- **Integral (I):** Removes small errors that remain over time.
-- **Derivative (D):** Reduces overshoot and helps stabilize the ball's movement.
-
-The controller output is converted into a servo angle, allowing the beam to respond smoothly and keep the ball near the desired position.
-
 ---
 
 ## Hardware Components
