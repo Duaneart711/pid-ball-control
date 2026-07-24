@@ -2,7 +2,7 @@
 
 ## Overview
 
-Designed and built a closed-loop ball-and-beam control system that uses a PID (Proportional–Integral–Derivative) controller to keep a ball at a target position in real time. The project combines embedded programming, sensors, mechanical hardware, and feedback control to adjust the beam angle as the ball moves automatically.
+Designed and built a closed-loop ball-and-beam control system that uses a PID (Proportional–Integral–Derivative) controller to keep a ball near a target position in real time. The project combines embedded programming, sensors, mechanical hardware, and feedback control to continuously monitor the ball's position and adjust the beam angle.
 
 Using an Arduino Uno, a Sharp infrared distance sensor, and a servo motor, the system continuously measures the ball's position and corrects it by tilting the beam. Through repeated testing and controller tuning, the system achieved stable ball positioning with improved response time and reduced oscillations.
 
@@ -76,6 +76,8 @@ distance_previous_error = distance_error;
 
 ## Hardware Components
 
+The control system combines embedded electronics with a custom mechanical assembly to continuously measure the ball's position and adjust the beam angle in real time.
+
 - Arduino Uno
 - Sharp GP2Y0A21 Infrared Distance Sensor
 - Servo Motor
@@ -133,7 +135,7 @@ These measurements were used to compare different controller settings and guide 
 
 The completed system successfully demonstrated stable closed-loop PID control by continuously balancing the ball near its target position. Through iterative tuning and repeated testing, the controller achieved smoother motion, reduced overshoot, and improved settling time while maintaining reliable operation across multiple test runs.
 
-The project demonstrated the successful integration of embedded programming, sensor feedback, servo control, and real-time control algorithms into a fully functional electromechanical system.
+The project demonstrated the successful integration of embedded programming, sensor feedback, servo control, and real-time control algorithms into a functioning closed-loop control system.
 ---
 
 ## Project Photos
