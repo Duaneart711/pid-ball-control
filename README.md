@@ -87,29 +87,30 @@ distance_previous_error = distance_error;
 
 ---
 
-## My Contributions
+## Design & Implementation
 
-This project involved designing, programming, assembling, and testing the complete control system.
+This project was designed, built, programmed, and tested from start to finish. Development included hardware assembly, embedded programming, controller tuning, and experimental validation.
 
-My responsibilities included:
+Key work completed included:
 
-- Programming the PID control algorithm on an Arduino Uno.
-- Integrating the infrared distance sensor with the servo-controlled beam.
-- Wiring and assembling the electrical and mechanical components.
-- Tuning the proportional, integral, and derivative gains through repeated hardware testing.
-- Troubleshooting sensor noise, unstable controller behavior, and mechanical response issues.
-- Evaluating controller performance using experimental response data.
-
+- Designed and assembled the complete ball-and-beam system.
+- Programmed the PID control algorithm using an Arduino Uno.
+- Integrated the infrared distance sensor with the servo-controlled beam.
+- Wired and tested the electrical and mechanical components.
+- Tuned the proportional, integral, and derivative gains through repeated testing.
+- Troubleshot sensor noise, controller stability, and mechanical response.
+- Evaluated controller performance using experimental response data.
 ---
 
 ## Engineering Challenges
 
-One of the biggest challenges was tuning the PID controller to keep the ball stable while still responding quickly. Higher proportional gains improved response speed but caused overshoot, while excessive derivative gain reduced oscillations at the cost of slower movement. The controller required several rounds of tuning to find the right balance between speed and stability.
+Developing a stable control system required balancing fast response with overall stability.
 
-Another challenge was reducing noise from the infrared distance sensor. To improve measurement accuracy, the controller averaged multiple sensor readings before calculating each control update.
+- **PID tuning:** Finding the right combination of proportional, integral, and derivative gains required multiple rounds of testing to achieve quick response without excessive overshoot.
 
-The mechanical system also introduced limitations. Since the servo motor cannot move instantly, the controller had to be tuned to account for the physical response of the beam while minimizing delay and preventing unnecessary oscillations.
+- **Sensor accuracy:** The infrared distance sensor produced small measurement fluctuations, so multiple readings were averaged before each control update to improve stability.
 
+- **Mechanical limitations:** Because the servo motor cannot move instantly, the controller had to account for mechanical delay while minimizing unnecessary oscillations.
 ---
 
 ## Testing & Validation
@@ -130,8 +131,9 @@ These measurements were used to compare different controller settings and guide 
 
 ## Results
 
-The completed system successfully maintained the ball near its desired position using real-time PID control. Through iterative tuning and repeated testing, the controller became more stable, reduced overshoot, and improved settling time while maintaining reliable operation throughout multiple test runs.
+The completed system successfully demonstrated stable closed-loop PID control by continuously balancing the ball near its target position. Through iterative tuning and repeated testing, the controller achieved smoother motion, reduced overshoot, and improved settling time while maintaining reliable operation across multiple test runs.
 
+The project demonstrated the successful integration of embedded programming, sensor feedback, servo control, and real-time control algorithms into a fully functional electromechanical system.
 ---
 
 ## Project Photos
