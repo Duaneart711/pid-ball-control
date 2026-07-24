@@ -7,7 +7,38 @@ Designed and built a closed-loop ball-and-beam control system that uses a PID (P
 Using an Arduino Uno, a Sharp infrared distance sensor, and a servo motor, the system continuously measures the ball's position and corrects it by tilting the beam. Through repeated testing and controller tuning, the system achieved stable ball positioning with improved response time and reduced oscillations.
 
 ---
+## Code
 
+The snippet below shows the core control loop that reads the sensor, calculates the PID output, and adjusts the servo to keep the ball centered.
+
+```cpp
+distance = get_dist(100);
+
+distance_error = distance_setpoint - distance;
+PID_p = kp * distance_error;
+
+float dist_difference = distance_error - distance_previous_error;
+PID_d = kd * (dist_difference / period);
+
+if (-3 < distance_error && distance_error < 3)
+{
+    PID_i += ki * distance_error;
+}
+else
+{
+    PID_i = 0;
+}
+
+PID_total = PID_p + PID_i + PID_d;
+PID_total = map(PID_total, -150, 150, 0, 150);
+
+if (PID_total < 20) PID_total = 20;
+if (PID_total > 160) PID_total = 160;
+
+myservo.write(PID_total + 30);
+
+distance_previous_error = distance_error;
+```
 ## Hero Photo
 
 <img width="1179" height="869" alt="IMG_2273" src="https://github.com/user-attachments/assets/b654d8fe-0a8d-4ae6-9bc8-299f7274bf58" />
