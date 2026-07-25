@@ -14,15 +14,11 @@ Using an Arduino Uno, a Sharp infrared distance sensor, and a servo motor, the s
 
 ---
 
-## Project Highlights
+### Labeled System Overview
 
-- Closed-loop PID control system
-- Arduino-based embedded programming
-- Real-time position feedback using an infrared distance sensor
-- Servo motor beam control
-- PID tuning and controller optimization
-- Hardware integration and electrical wiring
-- Experimental testing and performance evaluation
+<img width="1179" height="664" alt="IMG_2300" src="https://github.com/user-attachments/assets/26506dfa-74c9-4404-93d6-da5381ca6223" />
+
+<img width="2054" height="1149" alt="IMG_2055" src="https://github.com/user-attachments/assets/189bc0db-174e-49d1-b8a0-8135e3f90d58" />
 
 ---
 
@@ -38,11 +34,13 @@ A PID controller makes these adjustments by considering three factors:
 
 The controller output is converted into a servo angle, allowing the beam to respond smoothly and keep the ball near the desired position.
 
+<img width="1179" height="332" alt="IMG_2302" src="https://github.com/user-attachments/assets/6bc9d572-615a-4f31-b387-7a92ee592c13" />
+
 ---
 
 ## Code
 
-The snippet below shows the core control loop that reads the sensor, calculates the PID output, and adjusts the servo to keep the ball centered.
+The snippet below illustrates the core PID control loop responsible for reading the sensor, computing the control output, and commanding the servo motor.
 
 ```cpp
 distance = get_dist(100);
@@ -140,11 +138,13 @@ The project demonstrated the successful integration of embedded programming, sen
 
 ## Project Photos
 
-### Labeled System Overview
+##Electrical Integration
 
-<img width="2054" height="1149" alt="IMG_2055" src="https://github.com/user-attachments/assets/189bc0db-174e-49d1-b8a0-8135e3f90d58" />
+The diagram below shows the electrical connections between the Arduino Uno, Sharp GP2Y0A21 infrared distance sensor, and servo motor used to implement the closed-loop control system.
 
-### Additional Build Photo
+<img width="1179" height="874" alt="IMG_2301" src="https://github.com/user-attachments/assets/0c6ee039-4ebc-45ba-8a6f-2dcbe2adcca9" />
+
+##Additional Build Photo
 
 <img width="1178" height="1511" alt="IMG_1988" src="https://github.com/user-attachments/assets/2820d5e3-a9c1-4ebd-9c5a-89b3dbace256" />
 
